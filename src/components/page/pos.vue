@@ -47,20 +47,20 @@
                     <div class="tit">常用商品</div>
                     <div>
                         <ul class="goodslist clearfix">
-                            <li v-for="good in oftenCoods">
-                                <span>{{good.goodsName}}</span><span class="price">￥{{good.price}}元</span>
+                            <li v-for="goods in oftenCoods">
+                                <span>{{goods.goodsName}}</span><span class="price">￥{{goods.price}}元</span>
                             </li>
                         </ul>
                     </div>
                     <div class="tit">常用商品</div>
                     <el-tabs>
                         <el-tab-pane  label = "主食">
-                            <ul class="goodslist2">
-                                <li>
-                                    <span class="foodimg"><img src="" alt=""></span>
-                                    <div>
-                                        <p>香辣鸡腿堡</p>
-                                        <p>18元</p>
+                            <ul class="goodslist2 clearfix">
+                                <li class="clearfix" v-for="goods in type0Goods" >
+                                    <span class="foodimg"><img v-bind:src="goods.goodsImg" alt=""></span>
+                                    <div class="fontdinfo">
+                                        <p>{{goods.goodsName}}</p>
+                                        <p>￥{{goods.price}}元</p>
                                     </div>
                                 </li>
                             </ul>
@@ -119,6 +119,32 @@ export default {
           goodsName: "橙子",
           price: 8
         }
+      ],
+      type0Goods:[
+          {
+              goodsId:1,
+              goodsImg:'http://www.jq22.com/demo/jquerydraw201807262342/images/back1.jpg',
+              goodsName:'杭椒小炒',
+              price:32
+          },
+          {
+              goodsId:2,
+              goodsImg:'http://www.jq22.com/demo/jquerydraw201807262342/images/back1.jpg',
+              goodsName:'酸辣土豆丝',
+              price:18
+          },
+          {
+              goodsId:3,
+              goodsImg:'http://www.jq22.com/demo/jquerydraw201807262342/images/back1.jpg',
+              goodsName:'小锅米线',
+              price:9
+          },
+          {
+              goodsId:4,
+              goodsImg:'../../static/codelogo.png',
+              goodsName:'煎饼',
+              price:8
+          },
       ]
     };
   },
@@ -136,7 +162,7 @@ export default {
   background: #f9fafc;
   border-right: 1px solid #dbdcdc;
 }
-.divbtn {
+.divbtn{
   padding: 20px 0;
 }
 .goodslist {
@@ -186,17 +212,22 @@ export default {
   padding-bottom: 0px;
 }
 .goodslist2 li {
-  float: left;
-  border: 1px solid #e6e8ea;
-  border-radius: 5px;
-  margin-right: 15px;
-  margin-bottom: 15px;
-  list-style: none;
-  text-align: center;
-  color: #333;
-  padding: 10px 10px;
-  background: #fff;
+ float: left;
+    border: 1px solid #e6e8ea;
+    border-radius: 5px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    list-style: none;
+    text-align: center;
+    color: #333;
+    padding: 10px 10px;
+    background: #fff;
+    text-align: left;
+    width: 164px;
 }
+.goodslist2 li .foodimg{width: 50px;height: 50px;float: left;margin-right: 10px;}
+.goodslist2 li .foodimg img{width: 50px;height: 50px;}
+.goodslist2 li .foodinfo{float: left;}
 
 .clearfix:after {
   visibility: hidden;
