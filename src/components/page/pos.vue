@@ -227,8 +227,8 @@ export default {
           count: 1
         };
         this.tableData.push(newGoods);
-        this.getAllMoney();
       }
+      this.getAllMoney();
     },
     //删除单个商品
     delSingleGoods(goods) {
@@ -264,7 +264,7 @@ export default {
         this.tableData.forEach(element => {
           //箭头函数不影响this作用域
           this.totalCount += element.count;
-          this.totalMoney = this.totalMoney + element.price * element.count;
+          this.totalMoney = this.totalMoney + (element.price * element.count);
         });
       }
     },
